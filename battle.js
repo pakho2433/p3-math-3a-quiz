@@ -103,20 +103,34 @@
       ctx.lineTo(x + 90, 125);
       ctx.fill();
     }
-    // trees mid
+    // clouds (slow parallax)
+    for (let i = 0; i < 3; i++) {
+      const cx = ((t * 0.01 * (0.4 + i * 0.15) + i * 110) % (W + 50)) - 20;
+      const cy = 14 + i * 10;
+      px(ctx, cx, cy, 22, 7, "#ffffffcc");
+      px(ctx, cx + 6, cy - 4, 14, 6, "#ffffff");
+      px(ctx, cx + 10, cy + 2, 16, 5, "#f2fbff");
+    }
+    // trees mid, canopy sways
     for (let i = 0; i < 6; i++) {
       const x = (i * 64 + 10 - (t * 0.02 % 64)) + sx * 0.6;
+      const sw = Math.round(Math.sin(t * 0.004 + i) * 2);
       px(ctx, x + 10, 108, 5, 22, "#5a3310");
-      px(ctx, x + 2, 96, 21, 16, "#2d6a1e");
-      px(ctx, x + 5, 88, 15, 12, "#3d8a28");
-      px(ctx, x + 8, 82, 9, 8, "#4ca333");
+      px(ctx, x + 2 + sw, 96, 21, 16, "#2d6a1e");
+      px(ctx, x + 5 + sw, 88, 15, 12, "#3d8a28");
+      px(ctx, x + 8 + sw, 82, 9, 8, "#4ca333");
     }
     // ground
     px(ctx, 0, GROUND - 8, W, H - (GROUND - 8), "#5c3a1e");
     px(ctx, 0, GROUND - 8, W, 6, "#3d7a28");
     px(ctx, 0, GROUND - 4, W, 3, "#2f5e1e");
-    for (let i = 0; i < 20; i++) {
-      px(ctx, (i * 19 + (t * 0.03 | 0)) % W, GROUND - 10, 2, 3, "#6fbf3a");
+    // swaying grass
+    for (let i = 0; i < 36; i++) {
+      const gx = (i * 9 + 2) % W;
+      const gh = 4 + (i % 3) * 2;
+      const tip = Math.round(Math.sin(t * 0.01 + i * 0.7) * 2);
+      px(ctx, gx, GROUND - 8 - gh, 1, gh, i % 2 ? "#6fbf3a" : "#4ca333");
+      px(ctx, gx + tip, GROUND - 10 - gh, 1, 3, "#8fd15a");
     }
   }
 
@@ -176,11 +190,17 @@
       const x = (i * 36 + t * 0.04) % W;
       px(ctx, x, GROUND - 20 + wave - (i % 3), 8, 3, "#ffe566");
     }
-    // embers
+    // embers + lava bubbles
     for (let i = 0; i < 12; i++) {
       const x = (i * 29 + t * 0.03 * (1 + i % 3)) % W;
       const y = (GROUND - 30 - ((t * 0.05 + i * 17) % 90));
       px(ctx, x, y, 2, 2, i % 2 ? "#ffcc33" : "#ff6a00");
+    }
+    for (let i = 0; i < 6; i++) {
+      const bx = (i * 53 + 10 + Math.sin(t * 0.003 + i) * 8) % W;
+      const bo = (Math.sin(t * 0.008 + i * 1.3) + 1) * 3;
+      px(ctx, bx, GROUND - 16 - bo, 5, 4, "#ffe566");
+      px(ctx, bx + 1, GROUND - 18 - bo, 3, 2, "#fff3a0");
     }
     px(ctx, 0, GROUND - 4, W, H - (GROUND - 4), "#2a1210");
     px(ctx, 0, GROUND - 4, W, 3, "#5a2018");
@@ -211,16 +231,26 @@
     px(ctx, cx + 40, 82, 8, 14, ((t * 0.003) % 2 > 1) ? lit : "#ffaa44");
     px(ctx, cx + 66, 90, 8, 12, lit);
     px(ctx, cx + 40, 50, 6, 8, lit);
-    // banners
-    px(ctx, cx + 22, 70, 4, 16, "#9b2226");
-    px(ctx, cx + 70, 70, 4, 16, "#9b2226");
+    // waving banners
+    const bsw = Math.round(Math.sin(t * 0.012) * 2);
+    px(ctx, cx + 22, 70, 3, 6, "#6a1808");
+    px(ctx, cx + 25, 72, 7 + bsw, 8, "#9b2226");
+    px(ctx, cx + 25 + bsw, 80, 6, 6, "#c1121f");
+    px(ctx, cx + 70, 70, 3, 6, "#6a1808");
+    px(ctx, cx + 73, 72, 7 - bsw, 8, "#9b2226");
+    px(ctx, cx + 73 - bsw, 80, 6, 6, "#c1121f");
     // pillars
     px(ctx, 8, 100, 14, 50, "#2a2850");
     px(ctx, 298, 100, 14, 50, "#2a2850");
-    // torches
+    // torches with rising flicker
     const flick = (Math.sin(t * 0.02) + 1) * 0.5;
-    px(ctx, 12, 108, 6, 8, flick > 0.4 ? "#ffcc33" : "#ff6a00");
-    px(ctx, 302, 108, 6, 8, flick > 0.5 ? "#ffcc33" : "#ff6a00");
+    const rise = 2 + Math.round(Math.sin(t * 0.03) * 2);
+    px(ctx, 11, 118, 4, 6, "#5a3310");
+    px(ctx, 12, 108 - rise, 6, 10 + rise, flick > 0.4 ? "#ffcc33" : "#ff6a00");
+    px(ctx, 14, 106 - rise, 3, 4, "#fff3a0");
+    px(ctx, 301, 118, 4, 6, "#5a3310");
+    px(ctx, 302, 108 - rise, 6, 10 + rise, flick > 0.5 ? "#ffcc33" : "#ff6a00");
+    px(ctx, 304, 106 - rise, 3, 4, "#fff3a0");
     px(ctx, 0, GROUND - 6, W, H - (GROUND - 6), "#2a2850");
     px(ctx, 0, GROUND - 6, W, 4, "#4a4878");
     for (let i = 0; i < 16; i++) px(ctx, i * 20, GROUND + 4, 18, 2, "#1c1a38");
@@ -657,6 +687,7 @@
     lastAnim: "",
     lastItem: null,
     lastKillAt: 0,
+    mapOn: false,
     hero: { level: 1, exp: 0, expToNext: 20, atk: 1 },
     glowT: 0,
     toastTimer: 0,
@@ -704,6 +735,7 @@
       this.hideToast();
       this.hideLvUp();
       this.hideBoss();
+      this._finishMap(true);
     },
 
     spawnMonster(level) {
@@ -811,6 +843,171 @@
 
     addSlash(x, y) {
       this.slashes.push({ x, y, t: 0 });
+    },
+
+
+    playMapTravel(fromLv, toLv) {
+      return new Promise((resolve) => {
+        if (this.mapOn) this._finishMap(true);
+        this.mapOn = true;
+        this.mapFrom = Math.max(1, fromLv || 1);
+        this.mapTo = Math.max(this.mapFrom + 1, toLv || this.mapFrom + 1);
+        this.mapT0 = performance.now();
+        this.mapDur = 1500;
+        this._mapResolve = resolve;
+        this.lastAnim = "map";
+        const hint = document.getElementById("mapHint");
+        if (hint) hint.classList.remove("hide");
+        const skip = () => this._finishMap(false);
+        this._mapSkip = skip;
+        const el = document.getElementById("stage") || this.canvas;
+        if (el) el.addEventListener("pointerdown", skip);
+        this._mapTimer = setTimeout(() => this._finishMap(false), 1600);
+      });
+    },
+
+    _finishMap(silent) {
+      if (!this.mapOn && !this._mapResolve) return;
+      this.mapOn = false;
+      const hint = document.getElementById("mapHint");
+      if (hint) hint.classList.add("hide");
+      const el = document.getElementById("stage") || this.canvas;
+      if (el && this._mapSkip) el.removeEventListener("pointerdown", this._mapSkip);
+      this._mapSkip = null;
+      if (this._mapTimer) { clearTimeout(this._mapTimer); this._mapTimer = null; }
+      const r = this._mapResolve;
+      this._mapResolve = null;
+      if (!silent) this.lastAnim = "idle";
+      if (r) r();
+    },
+
+    _levelT(lv) {
+      const L = Math.max(1, lv);
+      if (L <= 10) return ((L - 1) / 9) * 0.25;
+      if (L <= 25) return 0.25 + ((L - 10) / 15) * 0.25;
+      if (L <= 40) return 0.50 + ((L - 25) / 15) * 0.25;
+      return 0.75 + Math.min(1, (L - 40) / 20) * 0.25;
+    },
+
+    _pathPoint(tt) {
+      const pts = [
+        [18, 118], [48, 108], [80, 122],
+        [112, 96], [148, 112], [178, 90],
+        [208, 108], [236, 86], [258, 114],
+        [284, 96], [306, 108]
+      ];
+      const n = pts.length - 1;
+      const x = Math.max(0, Math.min(0.999, tt)) * n;
+      const i = Math.floor(x);
+      const f = x - i;
+      return {
+        x: pts[i][0] + (pts[i + 1][0] - pts[i][0]) * f,
+        y: pts[i][1] + (pts[i + 1][1] - pts[i][1]) * f
+      };
+    },
+
+    drawWorldMap(ctx, now) {
+      const pRaw = this.mapT0 ? Math.min(1, (now - this.mapT0) / this.mapDur) : 1;
+      const p = pRaw * pRaw * (3 - 2 * pRaw);
+      const t0 = this._levelT(this.mapFrom || 1);
+      const t1 = this._levelT(this.mapTo || 2);
+      const tt = t0 + (t1 - t0) * p;
+      const pos = this._pathPoint(tt);
+
+      // four biome columns
+      px(ctx, 0, 0, 80, H, "#7ec8e3");
+      px(ctx, 0, 90, 80, 90, "#4e7d3a");
+      px(ctx, 80, 0, 80, H, "#120c18");
+      px(ctx, 80, 90, 80, 90, "#1e1828");
+      px(ctx, 160, 0, 80, H, "#2a0a0a");
+      px(ctx, 160, 90, 80, 90, "#c43c00");
+      px(ctx, 240, 0, 80, H, "#14122a");
+      px(ctx, 240, 90, 80, 90, "#2a2850");
+      // sky details
+      px(ctx, 50, 16, 12, 12, "#ffe566");
+      const cld = ((now * 0.012) % 90);
+      px(ctx, 8 + cld * 0.2, 22, 16, 5, "#fff");
+      // cave crystals
+      const cg = (Math.sin(now * 0.006) + 1) * 0.5;
+      px(ctx, 110, 40, 5, 14, cg > 0.5 ? "#7a3dff" : "#4a1fa0");
+      px(ctx, 132, 48, 4, 12, cg > 0.4 ? "#c9a8ff" : "#7a3dff");
+      // lava glow + bubbles
+      const lv = Math.round(Math.sin(now * 0.008) * 2);
+      px(ctx, 160, 100 + lv, 80, 8, "#ff6a00");
+      px(ctx, 180, 96 + lv, 6, 4, "#ffe566");
+      // moon + torch
+      px(ctx, 260, 16, 10, 10, "#f0e6c0");
+      const fl = (Math.sin(now * 0.02) + 1) * 0.5;
+      px(ctx, 300, 70, 5, 8, fl > 0.4 ? "#ffcc33" : "#ff6a00");
+      // swaying grass in forest column
+      for (let i = 0; i < 10; i++) {
+        const tip = Math.round(Math.sin(now * 0.01 + i) * 2);
+        px(ctx, 6 + i * 7, 130, 1, 8, "#6fbf3a");
+        px(ctx, 6 + i * 7 + tip, 126, 1, 4, "#8fd15a");
+      }
+      // little trees
+      px(ctx, 22, 100, 3, 12, "#5a3310");
+      px(ctx, 16 + Math.round(Math.sin(now * 0.004) * 1), 90, 14, 14, "#2d6a1e");
+      px(ctx, 58, 108, 3, 10, "#5a3310");
+      px(ctx, 53, 98, 12, 12, "#3d8a28");
+
+      // path
+      const pts = [
+        [18, 118], [48, 108], [80, 122],
+        [112, 96], [148, 112], [178, 90],
+        [208, 108], [236, 86], [258, 114],
+        [284, 96], [306, 108]
+      ];
+      ctx.fillStyle = "#e8d5a3";
+      for (let i = 0; i < pts.length - 1; i++) {
+        const a = pts[i], b = pts[i + 1];
+        const steps = 8;
+        for (let s = 0; s <= steps; s++) {
+          const f = s / steps;
+          const x = a[0] + (b[0] - a[0]) * f;
+          const y = a[1] + (b[1] - a[1]) * f;
+          px(ctx, x - 2, y - 1, 4, 3, "#c4884a");
+          px(ctx, x - 1, y, 2, 2, "#e8d5a3");
+        }
+      }
+
+      // stage nodes
+      const nodes = [
+        { t: 0.12, name: "森林", col: "#3d8a28" },
+        { t: 0.37, name: "洞穴", col: "#7a3dff" },
+        { t: 0.62, name: "熔岩", col: "#ff6a00" },
+        { t: 0.87, name: "城堡", col: "#d4af37" }
+      ];
+      ctx.font = "bold 8px sans-serif";
+      ctx.textAlign = "center";
+      nodes.forEach((n) => {
+        const np = this._pathPoint(n.t);
+        const reached = tt >= n.t - 0.01;
+        px(ctx, np.x - 5, np.y - 5, 10, 10, "#1b1210");
+        px(ctx, np.x - 4, np.y - 4, 8, 8, reached ? n.col : "#5a5348");
+        if (reached) px(ctx, np.x - 2, np.y - 2, 4, 4, "#fff");
+        ctx.fillStyle = "#1b1210";
+        ctx.fillText(n.name, np.x + 1, np.y + 14);
+        ctx.fillStyle = reached ? "#fff8e7" : "#bbb";
+        ctx.fillText(n.name, np.x, np.y + 13);
+      });
+
+      // title
+      ctx.textAlign = "center";
+      ctx.font = "bold 10px sans-serif";
+      ctx.fillStyle = "#1b1210";
+      ctx.fillText("冒險地圖", 161, 16);
+      ctx.fillStyle = "#ffd166";
+      ctx.fillText("冒險地圖", 160, 15);
+
+      // running hero
+      const bob = Math.round(Math.sin(now * 0.02) * 2);
+      const runPose = ((now / 120) | 0) % 2 === 0 ? 1 : 2;
+      ctx.save();
+      ctx.translate(pos.x, pos.y + bob);
+      ctx.scale(0.85, 0.85);
+      drawHero(ctx, 0, 0, this.gear(), now, runPose, false, false);
+      ctx.restore();
     },
 
     playCorrect() {
@@ -1024,6 +1221,9 @@
       const ctx = this.bctx;
       const stage = stageFor(this.monLevel || 1);
       ctx.imageSmoothingEnabled = false;
+      if (this.mapOn) {
+        this.drawWorldMap(ctx, now);
+      } else {
       drawStage(ctx, stage, now, this.shake);
 
       // hero
@@ -1066,6 +1266,8 @@
         ctx.fillText(f.text, f.x, f.y);
         ctx.globalAlpha = 1;
       });
+
+      } // end battle (non-map) layer
 
       // blit
       const out = this.ctx;
@@ -1113,7 +1315,8 @@
         gear: this.owned.map((i) => i.name),
         level: this.hero.level,
         exp: this.hero.exp,
-        atk: this.hero.atk
+        atk: this.hero.atk,
+        mapOn: !!this.mapOn
       };
     }
   };

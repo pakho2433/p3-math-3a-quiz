@@ -176,14 +176,21 @@
 
   function wait(ms) { return new Promise((r) => setTimeout(r, ms)); }
 
-  function nextAuto() {
+  async function nextAuto() {
+    const needMap = !!(Battle.mon && Battle.mon.dead);
+    const fromLv = Battle.monLevel || 1;
     i++;
-    busy = false;
     done = false;
-    if (i < qs.length) {
-      if (!Battle.mon || Battle.mon.dead) Battle.spawnMonster(Battle.monLevel + 1);
-      render();
-    } else result();
+    if (i >= qs.length) { busy = false; result(); return; }
+    if (needMap) {
+      busy = true;
+      try { await Battle.playMapTravel(fromLv, fromLv + 1); } catch (e) { console.error(e); }
+      Battle.spawnMonster(fromLv + 1);
+      busy = false;
+    } else if (!Battle.mon || Battle.mon.dead) {
+      Battle.spawnMonster((Battle.monLevel || 0) + 1);
+    }
+    render();
   }
 
   function next() {
@@ -277,7 +284,7 @@
     debugSetLevel(n) { Battle.spawnMonster(n); }
   };
 
-  fetch("questions.json?v=20261111v1")
+  fetch("questions.json?v=20261111v2")
     .then((r) => r.json())
     .then((data) => {
       all = data;

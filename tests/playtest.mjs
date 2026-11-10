@@ -140,9 +140,29 @@ try {
     }
 
     // wait for animation
+    if (!doWrong && n === 0) {
+      // capture kill, then map (map starts after kill rewards; don't wait for isReady yet)
+      await wait(600);
+      await page.screenshot({ path: path.join(PREV, 'kill.png') });
+      try {
+        await page.waitForFunction(() => {
+          const st = window.__p3quiz && window.__p3quiz.getState();
+          return st && (st.mapOn || st.lastAnim === 'map');
+        }, { timeout: 10000 });
+        await wait(300);
+        await page.screenshot({ path: path.join(PREV, 'world_map.png') });
+        results.checks.push({ name: 'world map shown after kill', pass: true, detail: 'mapOn' });
+        console.log('PASS world map shown after kill');
+      } catch (e) {
+        results.ok = false;
+        results.checks.push({ name: 'world map shown after kill', pass: false, detail: String(e) });
+        console.log('FAIL world map shown after kill', e.message || e);
+        await page.screenshot({ path: path.join(PREV, 'world_map.png') });
+      }
+    }
+
     await wait(doWrong ? 1100 : 400);
     if (!doWrong) {
-      // wait until auto-advance OR next button (last q)
       await page.waitForFunction(() => {
         const nxt = document.getElementById("next");
         return (nxt && !nxt.classList.contains("hide")) || (window.__p3quiz && window.__p3quiz.isReady()) || !document.getElementById("result").classList.contains("hide");
@@ -155,10 +175,6 @@ try {
     if (st.gear && st.gear.length) seenItem = true;
     if (st.level > 1 || st.lastAnim === 'levelup') seenLevelUp = true;
 
-    if (n === 0) {
-      // mid-kill or post-kill shot
-      await page.screenshot({ path: path.join(PREV, 'kill.png') });
-    }
     if (n === 1) {
       const toastVis = await page.evaluate(() => !document.getElementById('itemToast').classList.contains('hide') || true);
       await page.screenshot({ path: path.join(PREV, 'item_popup.png') });

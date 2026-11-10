@@ -210,3 +210,10 @@ h1{margin:.1em 0;color:#9b2226;font-size:clamp(26px,5.4vw,36px);text-shadow:2px 
 @media (max-width:560px){
   .exp-bar{width:52px}
 }
+
+.map-hint{
+  position:absolute;right:10px;bottom:8px;z-index:22;
+  background:#1b1210cc;color:#ffd166;font-size:12px;font-weight:800;
+  padding:4px 10px;border-radius:999px;border:2px solid #ffd166;pointer-events:none;
+  letter-spacing:1px;
+}
