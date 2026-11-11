@@ -1,0 +1,228 @@
+﻿id,status,old source,new source,note
+1,ok,課本 p.3,課本 p.3,p.3 數學探索 verified
+2,fixed,課本 p.4,課本 p.3,old: 10000讀作 (p.4 not captured) -> replaced with p.3 想一想
+3,fixed,課本 p.4,課本 p.2,old: 20000讀作 (p.4 not captured) -> p.2 圓點圖
+4,fixed,課本 p.4,課本 p.2,old: 數位名稱 (p.4 not captured) -> p.2
+5,fixed,課本 p.5,作業 p.6,old p.5 43176 not captured -> 單元練習一①(c)
+6,fixed,課本 p.5,作業 p.6,old p.5 -> 單元練習一①(a)
+7,fixed,課本 p.5,作業 p.6,old p.5 -> 單元練習一①(b)
+8,fixed,課本 p.5,作業 p.6,old p.5 80000 -> 單元練習一②
+9,fixed,課本 p.7,作業 p.6,old p.7 50007 not captured -> 單元練習一③
+10,fixed,課本 p.7,作業 p.3,old p.7 rule not captured -> 作業⑨
+11,fixed,課本 p.7,作業 p.3,old p.7 -> 作業⑩
+12,fixed,課本 p.7,作業 p.3,old p.7 -> 作業⑧
+13,fixed,課本 p.7,作業 p.3,old p.7 -> 作業⑪ (CONTENT.md said 7000; image/maths = 700 C)
+14,fixed,課本 p.9,作業 p.3,old p.9 -> 作業⑫
+15,fixed,課本 p.9,作業 p.3,old p.9 -> 作業⑬
+16,fixed,課本 p.11,作業 p.3,old p.11 not captured -> 作業⑧
+17,fixed,課本 p.11,作業 p.3,old p.11 -> 作業⑨
+18,fixed,課本 p.11,作業 p.3,old p.11 -> 作業⑩
+19,fixed,課本 p.11,作業 p.3,old p.11 -> 作業⑭
+20,fixed,課本 p.11,作業 p.3,old p.11 -> 作業⑥
+21,ok,課本 p.13,課本 p.13,
+22,ok,課本 p.13,課本 p.13,
+23,ok,課本 p.14,課本 p.14,
+24,ok,課本 p.14,課本 p.14,reworded to book ○ format
+25,ok,課本 p.14,課本 p.14,
+26,ok,課本 p.14,課本 p.14,reworded to book ○ format
+27,ok,課本 p.14,課本 p.14,
+28,ok,課本 p.14,課本 p.14,explain corrected
+29,ok,課本 p.14,課本 p.14,
+30,ok,課本 p.14,課本 p.14,now asks full order as in book 4c
+31,fixed,課本 p.16,作業 p.5,old p.16 cards not captured -> 作業⑪(a)
+32,fixed,課本 p.16,作業 p.5,-> 作業⑪(b)
+33,fixed,課本 p.16,作業 p.5,-> 作業⑪(c)
+34,fixed,課本 p.16,作業 p.5,-> 作業⑩
+35,fixed,課本 p.16,作業 p.5,-> 作業⑩
+36,fixed,課本 p.16,作業 p.5,old p.18 not captured -> 作業⑨(a)
+37,fixed,課本 p.18,作業 p.5,old p.18 -> 作業⑨(b)
+38,fixed,課本 p.18,作業 p.4,old p.20 not captured -> 作業⑥
+39,fixed,課本 p.20,作業 p.4,old p.20 -> 作業⑤
+40,fixed,課本 p.20,作業 p.4,old p.20 -> 作業①
+41,fixed,課本 p.20,作業 p.4,old p.20 -> 作業③
+42,fixed,課本 p.20,作業 p.4,old p.20 -> 作業④
+43,fixed,課本 p.20,作業 p.4,old p.22 venues not captured -> 作業⑦
+44,fixed,課本 p.22,作業 p.4,old p.22 -> 作業⑧
+45,fixed,課本 p.22,作業 p.6,old p.22 input -> 單元練習一④(a)
+46,fixed,課本 p.22,課本 p.25,old p.24 not captured -> p.25 ④a
+47,fixed,課本 p.24,課本 p.25,old p.24 -> p.25 ④b
+48,fixed,課本 p.24,課本 p.25,old p.24 -> p.25 ⑤a
+49,fixed,課本 p.24,課本 p.25,old p.26 not captured -> p.25 ⑤b
+50,fixed,課本 p.26,課本 p.27,old p.26 50×3 -> p.27 ②a
+51,fixed,課本 p.26,課本 p.27,old p.26 -> p.27 ②b
+52,fixed,課本 p.26,課本 p.27,old 小明20元 not in book -> p.27 ③
+53,fixed,課本 p.28,課本 p.27,old p.28 not captured -> p.27 ④a
+54,fixed,課本 p.28,課本 p.27,old p.28 -> p.27 ④b
+55,fixed,課本 p.28,課本 p.27,old p.28 襪子 -> p.27 ④c
+56,fixed,課本 p.29,課本 p.32,old p.29 not captured -> p.32 ①
+57,fixed,課本 p.29,課本 p.32,old p.29 -> p.32 ②a
+58,fixed,課本 p.29,課本 p.32,old p.29 -> p.32 ②b
+59,fixed,課本 p.29,課本 p.35,old p.29 -> p.35 c
+60,fixed,課本 p.29,課本 p.35,old p.29 -> p.35 d
+61,fixed,課本 p.30,課本 p.35,old p.30 not captured -> p.35 自助餐
+62,fixed,課本 p.30,作業 p.8,old p.30 -> 作業⑤
+63,fixed,課本 p.30,作業 p.8,old p.30 -> 作業⑤
+64,fixed,課本 p.30,作業 p.8,old p.30 -> 作業②
+65,fixed,課本 p.30,作業 p.8,old p.30 -> 作業④
+66,fixed,課本 p.30,作業 p.9,old p.30 -> 作業⑦
+67,fixed,課本 p.30,作業 p.9,old p.30 -> 作業⑧
+68,fixed,課本 p.30,作業 p.9,old p.30 -> 作業⑨
+69,fixed,課本 p.30,作業 p.9,old p.30 -> 作業⑩
+70,fixed,課本 p.48,作業 p.9,old 雞兔 p.48 not captured/off-syllabus -> 作業⑪
+71,fixed,課本 p.48,作業 p.9,old 雞兔 p.48 -> 作業⑫
+72,fixed,課本 p.28,課本 p.46,old input p.28 -> p.46 ①
+73,fixed,課本 p.26,課本 p.46,old input p.26 -> p.46 ②
+74,fixed,課本 第6課 p.50,課本 p.56,old p.50 not captured -> p.56 堂課①
+75,fixed,課本 第6課 p.50,課本 p.56,old p.50 -> p.56 ②a
+76,fixed,課本 第6課 p.50,課本 p.56,old p.50 -> p.56 堂課②
+77,fixed,課本 第6課 p.50,課本 p.56,old p.50 -> p.56 堂課③
+78,fixed,課本 第6課 p.50,課本 p.56,old p.50 -> p.56 堂課④
+79,fixed,課本 第6課 p.50,課本 p.56,old p.50 -> p.56 堂課⑤
+80,fixed,課本 第6課 p.50,課本 p.56,old p.50 -> p.56 堂課⑥
+81,fixed,課本 第7課 p.60,課本 p.67,old p.60 not captured -> p.67 ④
+82,fixed,課本 第7課 p.60,課本 p.67,old p.60 -> p.67 ①
+83,fixed,課本 第7課 p.60,課本 p.67,old p.60 -> p.67 ③
+84,fixed,課本 p.70,課本 p.67,old p.70 not in book (unit ends p.69) -> p.67 ⑤
+85,fixed,課本 p.70,課本 p.67,old p.70 -> p.67 ⑥
+86,fixed,課本 p.70,課本 p.67,old p.70 -> p.67 ⑦
+87,fixed,課本 第7課 p.60,課本 p.67,old p.60 -> p.67 ⑨
+88,fixed,課本 第7課 p.60,課本 p.62,old p.60 -> p.62 ①
+89,fixed,課本 p.70,課本 p.62,old input p.70 -> p.62
+90,fixed,課本 p.73,作業 p.22,old p.73 not captured -> 作業 p.22 ①
+91,fixed,課本 p.73,作業 p.22,old p.73 -> 作業②
+92,fixed,課本 p.73,作業 p.22,old p.73 -> 作業③
+93,fixed,課本 p.73,課本 p.74,old p.73 -> p.74 ③b
+94,fixed,課本 p.79,課本 p.74,content ok; page p.79 -> p.74
+95,fixed,課本 p.79,課本 p.74,content ok; page p.79 -> p.74
+96,fixed,課本 p.76,課本 p.74,old p.76 not captured -> p.74
+97,fixed,課本 p.76,作業 p.22,old 搓手20秒 p.76 not captured -> 作業⑥
+98,fixed,課本 p.79,作業 p.22,old p.79 -> 作業⑦ (B)
+99,fixed,課本 第8課 p.72,作業 p.22,old p.72 -> 作業⑤
+100,fixed,課本 第9課 p.80,課本 p.80,reworded to 子賢 item on p.80
+101,fixed,課本 第9課 p.80,課本 p.80,reworded to p.80 溫故③
+102,fixed,課本 第9課 p.80,課本 p.80,reworded to p.80 溫故④
+103,fixed,課本 第10課 p.91,課本 p.93,old p.91 not captured -> p.93 ②a
+104,fixed,課本 第10課 p.91,課本 p.93,old p.91 -> p.93 ②b
+105,fixed,課本 第10課 p.91,課本 p.93,old p.91 -> p.93 ②c
+106,fixed,課本 第10課 p.91,課本 p.93,old p.91 -> p.93 ②d
+107,fixed,課本 第10課 p.91,課本 p.95,old p.91 -> p.95 ①
+108,fixed,課本 第10課 p.91,課本 p.93,old p.91 -> p.93 ③a
+109,fixed,課本 p.79,課本 p.74,page p.79 -> p.74
+110,fixed,課本 p.73,課本 p.93,old p.73 -> p.93 ③b
+111,ok,作業 p.2,作業 p.2,
+112,ok,作業 p.2,作業 p.2,90500 is 作業 p.2 ④ (draw beads); reading derived
+113,ok,作業 p.2,作業 p.2,
+114,ok,作業 p.8,作業 p.8,
+115,ok,作業 p.8,作業 p.8,
+116,ok,作業 p.8,作業 p.8,reworded to match workbook blank
+117,ok,作業 p.8,作業 p.8,
+118,ok,作業 p.10,作業 p.10,
+119,ok,作業 p.10,作業 p.10,
+120,ok,作業 p.10,作業 p.10,
+121,ok,作業 p.10,作業 p.10,
+122,ok,作業 p.10,作業 p.10,
+123,ok,作業 p.12,作業 p.12,
+124,ok,作業 p.12,作業 p.12,explain follows workbook method 8×(15×4)
+125,ok,作業 p.12,作業 p.12,
+126,ok,作業 p.12,作業 p.12,
+127,ok,作業 p.12,作業 p.12,
+128,ok,課本 p.40,課本 p.40,
+129,ok,課本 p.40,課本 p.40,
+130,ok,課本 p.43,課本 p.43,
+131,ok,課本 p.43,課本 p.43,
+132,ok,作業 p.26,作業 p.26,
+133,ok,作業 p.26,作業 p.26,
+134,ok,作業 p.26,作業 p.26,
+135,ok,作業 p.26,作業 p.26,
+136,added,,作業 p.3,
+137,added,,作業 p.3,
+138,added,,作業 p.6,
+139,added,,作業 p.6,
+140,added,,課本 p.14,
+141,added,,作業 p.9,
+142,added,,作業 p.10,
+143,added,,作業 p.10,
+144,added,,作業 p.12,
+145,added,,作業 p.12,
+146,added,,作業 p.12,
+147,added,,作業 p.12,
+148,added,,作業 p.12,
+149,added,,作業 p.12,
+150,added,,作業 p.14,
+151,added,,作業 p.14,
+152,added,,作業 p.14,
+153,added,,作業 p.14,
+154,added,,作業 p.14,
+155,added,,作業 p.14,
+156,added,,作業 p.14,
+157,added,,作業 p.14,
+158,added,,作業 p.14,
+159,added,,作業 p.14,
+160,added,,課本 p.46,
+161,added,,課本 p.46,
+162,added,,課本 p.46,
+163,added,,課本 p.46,
+164,added,,課本 p.46,
+165,added,,課本 p.46,
+166,added,,課本 p.46,
+167,added,,課本 p.46,
+168,added,,課本 p.46,
+169,added,,課本 p.46,
+170,added,,課本 p.43,
+171,added,,課本 p.43,
+172,added,,課本 p.40,
+173,added,,課本 p.67,
+174,added,,課本 p.62,
+175,added,,課本 p.62,
+176,added,,課本 p.62,
+177,added,,課本 p.62,
+178,added,,課本 p.52,
+179,added,,課本 p.52,
+180,added,,作業 p.18,
+181,added,,作業 p.18,
+182,added,,作業 p.18,
+183,added,,作業 p.18,
+184,added,,作業 p.18,
+185,added,,作業 p.20,
+186,added,,作業 p.20,
+187,added,,作業 p.20,
+188,added,,作業 p.20,
+189,added,,作業 p.20,
+190,added,,作業 p.20,
+191,added,,作業 p.20,
+192,added,,作業 p.20,
+193,added,,作業 p.16,
+194,added,,作業 p.16,
+195,added,,課本 p.95,
+196,added,,課本 p.95,
+197,added,,課本 p.95,
+198,added,,課本 p.95,
+199,added,,課本 p.95,
+200,added,,課本 p.95,
+201,added,,課本 p.95,
+202,added,,課本 p.95,
+203,added,,課本 p.98,
+204,added,,課本 p.98,
+205,added,,課本 p.98,
+206,added,,課本 p.98,
+207,added,,課本 p.98,
+208,added,,課本 p.98,
+209,added,,課本 p.100,
+210,added,,課本 p.100,
+211,added,,課本 p.100,
+212,added,,課本 p.100,
+213,added,,課本 p.86,
+214,added,,課本 p.86,
+215,added,,課本 p.93,
+216,added,,作業 p.24,
+217,added,,作業 p.24,
+218,added,,作業 p.24,
+219,added,,作業 p.26,
+220,added,,作業 p.26,
+221,added,,作業 p.26,
+222,added,,作業 p.26,
+223,added,,作業 p.28,
+224,added,,作業 p.28,
+225,added,,作業 p.28,
+226,added,,作業 p.28,
+227,added,,作業 p.28,

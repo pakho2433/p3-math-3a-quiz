@@ -420,7 +420,7 @@
     isBusy: () => busy, isDone: () => done
   };
 
-  fetch("questions.json?v=20261111v2")
+  fetch("questions.json?v=20261111v2g")
     .then((r) => r.json())
     .then((data) => {
       all = data;
